@@ -27,6 +27,11 @@ function findOver1000() {
     alert(firstThousand);
 }
 
+function resetNum() {
+    monthlySales.fill(0);
+    monthlySalesChart.update();
+}
+
 // Bar
 var monthlySalesChart = new Chart(ctx, {
     type: 'bar',
