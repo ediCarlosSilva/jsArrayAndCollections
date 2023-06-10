@@ -3,7 +3,7 @@ let ctx = document.getElementById('monthlySales').getContext('2d');
 let pieCtx = document.getElementById('deptSales').getContext('2d');
 let yearlyLabel = document.getElementById('yearlyTotal');
 
-let monthlySales = Array.of(1200, 9000, 3000);
+let monthlySales = Array.of(500, 9000, 3000);
 let monthLabes = Array.of('Oct', 'Nov', 'Dec');
 
 let deptSales = Array.of(1200, 9000, 3000);
@@ -13,16 +13,19 @@ function addYearlyTotal(a, b, c) {
     return a + b + c;
 }
 
-let octNums = Array.of(1200, 1000, 9000);
+let octNums = Array.of(500, 1000, 9000);
 let novNums = Array.of(1100, 2000, 9000);
 let decNums = Array.of(4000, 1000, 5000);
 
 let total = Array.of(addYearlyTotal(...octNums), addYearlyTotal(...novNums), addYearlyTotal(...decNums));
-alert(total);
-alert(addYearlyTotal(...total));
 
 let yearlyTotal = addYearlyTotal(...monthlySales);
 yearlyLabel.innerHTML = `R$ ${yearlyTotal}`;
+
+function findOver1000() {
+    let firstThousand = monthlySales.findIndex(element => element > 1000);
+    alert(firstThousand);
+}
 
 // Bar
 var monthlySalesChart = new Chart(ctx, {
