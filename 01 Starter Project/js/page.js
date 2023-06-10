@@ -3,23 +3,26 @@ let ctx = document.getElementById('monthlySales').getContext('2d');
 let pieCtx = document.getElementById('deptSales').getContext('2d');
 let yearlyLabel = document.getElementById('yearlyTotal');
 
-let monthlySales = Array.of(500, 9000, 3000);
+let monthlySales = Array.of(500, 9000, 3000, 4000);
 let monthLabes = Array.of('Oct', 'Nov', 'Dec');
 
 let deptSales = Array.of(1200, 9000, 3000);
 let deptLabels = Array.of('Hiking', 'Running', 'Hunting');
 
-function addYearlyTotal(a, b, c) {
-    return a + b + c;
+let yearlyTotal = 0;
+
+function addYearlyTotal(x) {
+    yearlyTotal = x + yearlyTotal;
 }
+
+monthlySales.forEach(addYearlyTotal);
 
 let octNums = Array.of(500, 1000, 9000);
 let novNums = Array.of(1100, 2000, 9000);
 let decNums = Array.of(4000, 1000, 5000);
 
-let total = Array.of(addYearlyTotal(...octNums), addYearlyTotal(...novNums), addYearlyTotal(...decNums));
+// let total = Array.of(addYearlyTotal(...octNums), addYearlyTotal(...novNums), addYearlyTotal(...decNums));
 
-let yearlyTotal = addYearlyTotal(...monthlySales);
 yearlyLabel.innerHTML = `R$ ${yearlyTotal}`;
 
 function findOver1000() {
